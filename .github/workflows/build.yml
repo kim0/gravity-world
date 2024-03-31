@@ -15,5 +15,8 @@ jobs:
           node-version: '18.x'
       - run: npm ci
       - run: npx grunt
-      - name: DEBUG
-        run: find build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "build/"
+          retention-days: 10
